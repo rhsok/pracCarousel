@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CommonStyle from '../../Commonstyle.css';
 import * as S from './Prac_Carousel1.css';
 
@@ -9,10 +9,10 @@ import four from '../../assets/four.jpg';
 import five from '../../assets/five.jpg';
 
 function Prac_Carousel1() {
-  const [carousel1Number, setCarousel1Number] = useState(1);
-  const [carousel1Images, setCarousel1Images] = useState(one);
+  const [carousel1Number, setCarousel1Number] = useState<number>(1);
+  const [carousel1Images, setCarousel1Images] = useState<string>(one);
 
-  const carousel1ImageChange = function (num: number) {
+  const carousel1ImageChange = function (num: number): void {
     switch (num) {
       case 1:
         return setCarousel1Images(one);
@@ -28,14 +28,27 @@ function Prac_Carousel1() {
   };
 
   const carousel1RightButton = function () {
+    if (carousel1Number > 4) {
+      setCarousel1Number(1);
+      return;
+    }
+
     setCarousel1Number(carousel1Number + 1);
-    carousel1ImageChange(carousel1Number);
   };
 
   const carousel1LeftButton = function () {
+    if (carousel1Number < 2) {
+      setCarousel1Number(5);
+      return;
+    }
     setCarousel1Number(carousel1Number - 1);
-    carousel1ImageChange(carousel1Number);
   };
+
+  useEffect(() => {
+    carousel1ImageChange(carousel1Number);
+  }, [carousel1Number]);
+
+  console.log(carousel1Number);
 
   return (
     <CommonStyle>
@@ -49,7 +62,23 @@ function Prac_Carousel1() {
         </S.Carousel1LeftButtonBox>
         <S.Carousel1ImageBox>
           <S.CarouselImage src={carousel1Images} alt='one' />
-          <S.Carousel1DotButtonBox></S.Carousel1DotButtonBox>
+          <S.Carousel1DotButtonBox>
+            <S.Carousel1DotButtonWrapper>
+              <S.Carousel1DotButton />
+            </S.Carousel1DotButtonWrapper>
+            <S.Carousel1DotButtonWrapper>
+              <S.Carousel1DotButton />
+            </S.Carousel1DotButtonWrapper>
+            <S.Carousel1DotButtonWrapper>
+              <S.Carousel1DotButton />
+            </S.Carousel1DotButtonWrapper>
+            <S.Carousel1DotButtonWrapper>
+              <S.Carousel1DotButton />
+            </S.Carousel1DotButtonWrapper>
+            <S.Carousel1DotButtonWrapper>
+              <S.Carousel1DotButton />
+            </S.Carousel1DotButtonWrapper>
+          </S.Carousel1DotButtonBox>
         </S.Carousel1ImageBox>
         <S.Carousel1RightButtonBox>
           <S.Carousel1RigthButton onClick={carousel1RightButton} />

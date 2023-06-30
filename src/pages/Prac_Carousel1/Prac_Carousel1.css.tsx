@@ -27,6 +27,9 @@ export const Carousel1ImageBox = styled.div`
   width: 60%;
   height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const CarouselImage = styled.img`
@@ -51,10 +54,31 @@ export const Carousel1RigthButton = styled.button`
 `;
 
 export const Carousel1DotButtonBox = styled.div`
-  width: 100%;
+  width: 50%;
   height: 75px;
   position: absolute;
   background-color: gray;
-  top: 275px;
-  background-color: rgb(0, 0, 0, 0.5);
+  top: 273px;
+  background-color: rgb(0, 0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  border-collapse: collapse;
+`;
+
+export const Carousel1DotButtonWrapper = styled.div`
+  height: 100%;
+  width: 25%;
+  /* border: 1px solid black; */
+  display: table-cell;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Carousel1DotButton = styled.button`
+  border-radius: 30px;
+  width: 15px;
+  height: 15px;
+  /* border: none; */
+  background-color: white;
 `;
