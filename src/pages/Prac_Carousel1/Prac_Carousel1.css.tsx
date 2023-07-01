@@ -3,24 +3,30 @@ import styled from '@emotion/styled';
 export const Carousel1Wrapper = styled.div`
   width: 900px;
   height: 350px;
-  background-color: beige;
+  background-color: white;
   display: flex;
   flex-direction: row;
+  border: 3px solid darkgrey;
 `;
 
 export const Carousel1LeftButtonBox = styled.div`
   width: 20%;
   height: 100%;
-  background-color: aliceblue;
+  background-color: white;
 `;
 
 export const Carousel1LeftButton = styled.button`
   width: 50px;
   height: 50px;
-  background-color: aliceblue;
   position: relative;
   left: 100px;
   top: 150px;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  :active {
+    transform: scale(0.8);
+  }
 `;
 
 export const Carousel1ImageBox = styled.div`
@@ -41,20 +47,24 @@ export const CarouselImage = styled.img`
 export const Carousel1RightButtonBox = styled.div`
   width: 20%;
   height: 100%;
-  background-color: aquamarine;
 `;
 
 export const Carousel1RigthButton = styled.button`
   width: 50px;
   height: 50px;
-  background-color: aliceblue;
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
   position: relative;
   left: 30px;
   top: 150px;
+  cursor: pointer;
+  :active {
+    transform: scale(0.8);
+  }
 `;
 
 export const Carousel1DotButtonBox = styled.div`
-  width: 50%;
+  width: 40%;
   height: 75px;
   position: absolute;
   background-color: gray;
@@ -76,9 +86,22 @@ export const Carousel1DotButtonWrapper = styled.div`
 `;
 
 export const Carousel1DotButton = styled.button`
-  border-radius: 30px;
-  width: 15px;
-  height: 15px;
-  /* border: none; */
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  border: none;
   background-color: white;
+  cursor: pointer;
+  :active {
+    transform: scale(0.7);
+  }
+`;
+
+export const Carousel1RightButtonImage = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+export const Carousel1LeftButtonImage = styled.img`
+  width: 30px;
+  height: 30px;
 `;
