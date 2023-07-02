@@ -7,6 +7,11 @@ function MainPage() {
   const goPrac1 = () => {
     navigate('/prac1');
   };
+
+  const goPrac2 = () => {
+    navigate('/prac2');
+  };
+
   return (
     <div>
       <div>MainPage</div>
@@ -14,7 +19,7 @@ function MainPage() {
         1번 carousel
       </button>
       <br />
-      <button className='loginBtn' onClick={goPrac1}>
+      <button className='loginBtn' onClick={goPrac2}>
         2번 carousel
       </button>
     </div>
