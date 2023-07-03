@@ -38,6 +38,14 @@ export const Carousel2ImageBox = styled.div`
   align-items: center;
 `;
 
+export const Carousel2ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+`;
+
 export const Carousel2Image = styled.img`
   width: 100%;
   height: 100%;

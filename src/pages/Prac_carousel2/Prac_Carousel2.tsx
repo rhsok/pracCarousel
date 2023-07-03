@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CommonStyle from '../../Commonstyle.css';
 import * as S from './Prac_Carousel2.css';
+import { MouseEvent } from 'react';
 
 import one from '../../assets/one.jpg';
 import two from '../../assets/two.jpg';
@@ -12,24 +13,12 @@ import rightButton from '../../assets/rightButton.png';
 
 function Prac_Carousel2() {
   const [carousel2Number, setCarousel2Number] = useState<number>(1);
-  const [carousel2Images, setCarousel2Images] = useState<string>(one);
+  const [position, setPosition] = useState({
+    x: 0,
+    y: 0,
+  });
 
-  const carousel1ImageChange = function (num: number): void {
-    switch (num) {
-      case 1:
-        return setCarousel2Images(one);
-      case 2:
-        return setCarousel2Images(two);
-      case 3:
-        return setCarousel2Images(three);
-      case 4:
-        return setCarousel2Images(four);
-      case 5:
-        return setCarousel2Images(five);
-    }
-  };
-
-  const carousel1RightButton = function () {
+  const carousel2RightButton = function () {
     if (carousel2Number > 4) {
       setCarousel2Number(1);
       return;
@@ -64,9 +53,18 @@ function Prac_Carousel2() {
     setCarousel2Number(5);
   };
 
-  useEffect(() => {
-    carousel1ImageChange(carousel2Number);
-  }, [carousel2Number]);
+  //마우스 클릭 이벤트
+  const mouseMoveHandler = (moveEvent: MouseEvent<HTMLDivElement>) => {
+    console.log(`mouse move x:${moveEvent.screenX} y:${moveEvent.screenY}`);
+    const deltaX = moveEvent.screenX - clickEvent.screenX;
+    const deltaY = moveEvent.screenY - clickEvent.screenY;
+
+    // 3️⃣
+    setPosition({
+      x: x + deltaX,
+      y: y + deltaY,
+    });
+  };
 
   console.log(carousel2Number);
 
@@ -89,8 +87,15 @@ function Prac_Carousel2() {
             <S.Carousel2LeftButtonImage src={leftButton} />
           </S.Carousel2LeftButton>
         </S.Carousel2LeftButtonBox>
-        <S.Carousel2ImageBox>
-          <S.Carousel2Image src={carousel2Images} alt='one' />
+        <S.Carousel2ImageBox onMouseDown={mouseMoveHandler}>
+          <S.Carousel2ImageWrapper>
+            <S.Carousel2Image src={one} alt='one' />
+            <S.Carousel2Image src={two} alt='one' />
+            <S.Carousel2Image src={three} alt='one' />
+            <S.Carousel2Image src={four} alt='one' />
+            <S.Carousel2Image src={five} alt='one' />
+          </S.Carousel2ImageWrapper>
+
           <S.Carousel2DotButtonBox>
             <S.Carousel2DotButtonWrapper>
               <S.Carousel2DotButton onClick={Carousel1DotButton1st} />
@@ -110,7 +115,7 @@ function Prac_Carousel2() {
           </S.Carousel2DotButtonBox>
         </S.Carousel2ImageBox>
         <S.Carousel2RightButtonBox>
-          <S.Carousel2RigthButton onClick={carousel1RightButton}>
+          <S.Carousel2RigthButton onClick={carousel2RightButton}>
             <S.Carousel2RightButtonImage src={rightButton} />
           </S.Carousel2RigthButton>
         </S.Carousel2RightButtonBox>
