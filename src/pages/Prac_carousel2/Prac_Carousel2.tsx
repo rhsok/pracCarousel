@@ -12,11 +12,21 @@ import leftButton from '../../assets/leftButton.png';
 import rightButton from '../../assets/rightButton.png';
 
 function Prac_Carousel2() {
+  //드래그 이벤트 함수
+  const inrange = (v: number, min: number, max: number) => {
+    if (v < min) return min;
+    if (v > max) return max;
+    return v;
+  };
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [transX, setTransX] = useState(0);
+
+  // 캐러셀 박스 크기
+  const SLIDER_WIDTH = 400;
+  const SLIDER_HEIGHT = 400;
+
   const [carousel2Number, setCarousel2Number] = useState<number>(1);
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
 
   const carousel2RightButton = function () {
     if (carousel2Number > 4) {
@@ -53,19 +63,6 @@ function Prac_Carousel2() {
     setCarousel2Number(5);
   };
 
-  //마우스 클릭 이벤트
-  const mouseMoveHandler = (moveEvent: MouseEvent<HTMLDivElement>) => {
-    console.log(`mouse move x:${moveEvent.screenX} y:${moveEvent.screenY}`);
-    const deltaX = moveEvent.screenX - clickEvent.screenX;
-    const deltaY = moveEvent.screenY - clickEvent.screenY;
-
-    // 3️⃣
-    setPosition({
-      x: x + deltaX,
-      y: y + deltaY,
-    });
-  };
-
   console.log(carousel2Number);
 
   return (
@@ -87,7 +84,13 @@ function Prac_Carousel2() {
             <S.Carousel2LeftButtonImage src={leftButton} />
           </S.Carousel2LeftButton>
         </S.Carousel2LeftButtonBox>
-        <S.Carousel2ImageBox onMouseDown={mouseMoveHandler}>
+        <S.Carousel2ImageBox
+          style={{
+            transform: `translateX(${-currentIndex * SLIDER_WIDTH + transX}px)`,
+            // 🏄🏻‍♂️  drag를 초기화할 때 부드럽게 이동시켜 주자. 꼼수입니다...
+            transition: `transform ${transX ? 0 : 300}ms ease-in-out 0s`,
+          }}
+        >
           <S.Carousel2ImageWrapper>
             <S.Carousel2Image src={one} alt='one' />
             <S.Carousel2Image src={two} alt='one' />
