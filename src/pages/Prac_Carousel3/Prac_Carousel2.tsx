@@ -11,7 +11,7 @@ import five from '../../assets/five.jpg';
 import leftButton from '../../assets/leftButton.png';
 import rightButton from '../../assets/rightButton.png';
 
-function Prac_Carousel2() {
+function Prac_Carousel3() {
   //드래그 이벤트 함수
   const inrange = (v: number, min: number, max: number) => {
     if (v < min) return min;
@@ -142,4 +142,4 @@ function Prac_Carousel2() {
   );
 }
 
-export default Prac_Carousel2;
+export default Prac_Carousel3;
