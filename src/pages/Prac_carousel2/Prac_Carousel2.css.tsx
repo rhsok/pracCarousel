@@ -36,6 +36,9 @@ export const Carousel2ImageBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: black;
+  overflow: hidden;
+  cursor: pointer;
 `;
 
 export const Carousel2ImageWrapper = styled.div`
@@ -43,7 +46,6 @@ export const Carousel2ImageWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  overflow: scroll;
 `;
 
 export const Carousel2Image = styled.img`

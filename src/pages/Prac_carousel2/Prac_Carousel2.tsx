@@ -19,7 +19,6 @@ function Prac_Carousel2() {
     return v;
   };
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [transX, setTransX] = useState(0);
 
   // 캐러셀 박스 크기
@@ -75,7 +74,8 @@ function Prac_Carousel2() {
       </p>
 
       <p>
-        이미지를 일열로 늘여놓고 버튼을 누를 때마다 중심이 이동하는 슬라이드{' '}
+        이미지를 일열로 늘여놓고 버튼을 누를 때마다 중심이 이동하는 슬라이드 +
+        드래그 기능
       </p>
       <br />
       <S.Carousel2Wrapper>
@@ -85,13 +85,28 @@ function Prac_Carousel2() {
           </S.Carousel2LeftButton>
         </S.Carousel2LeftButtonBox>
         <S.Carousel2ImageBox
-          style={{
-            transform: `translateX(${-currentIndex * SLIDER_WIDTH + transX}px)`,
-            // 🏄🏻‍♂️  drag를 초기화할 때 부드럽게 이동시켜 주자. 꼼수입니다...
-            transition: `transform ${transX ? 0 : 300}ms ease-in-out 0s`,
+          onMouseDown={(clickEvent: React.MouseEvent) => {
+            const mouseMoveHandler = (moveEvent: MouseEvent | any) => {
+              const distanceX = moveEvent.clientX - clickEvent.clientX;
+              setTransX(transX + distanceX);
+            };
+            const mouseUpHandler = () => {
+              document.removeEventListener('mousemove', mouseMoveHandler);
+            };
+
+            document.addEventListener('mousemove', mouseMoveHandler);
+            document.addEventListener('mouseup', mouseUpHandler, {
+              once: true,
+            });
           }}
         >
-          <S.Carousel2ImageWrapper>
+          <S.Carousel2ImageWrapper
+            style={{
+              transform: `translateX(${transX}px)`,
+              // 🏄🏻‍♂️  drag를 초기화할 때 부드럽게 이동시켜준다.
+              transition: `transform ${transX ? 0 : 300}ms ease-in-out 0s`,
+            }}
+          >
             <S.Carousel2Image src={one} alt='one' />
             <S.Carousel2Image src={two} alt='one' />
             <S.Carousel2Image src={three} alt='one' />
