@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Carousel2Wrapper = styled.div`
+export const Carousel3Wrapper = styled.div`
   width: 900px;
   height: 350px;
   background-color: white;
@@ -9,13 +9,13 @@ export const Carousel2Wrapper = styled.div`
   border: 3px solid darkgrey;
 `;
 
-export const Carousel2LeftButtonBox = styled.div`
+export const Carousel3LeftButtonBox = styled.div`
   width: 20%;
   height: 100%;
   background-color: white;
 `;
 
-export const Carousel2LeftButton = styled.button`
+export const Carousel3LeftButton = styled.button`
   width: 50px;
   height: 50px;
   position: relative;
@@ -29,7 +29,7 @@ export const Carousel2LeftButton = styled.button`
   }
 `;
 
-export const Carousel2ImageBox = styled.div`
+export const Carousel3ImageBox = styled.div`
   width: 60%;
   height: 100%;
   position: relative;
@@ -41,25 +41,25 @@ export const Carousel2ImageBox = styled.div`
   cursor: pointer;
 `;
 
-export const Carousel2ImageWrapper = styled.div`
+export const Carousel3ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
 `;
 
-export const Carousel2Image = styled.img`
+export const Carousel3Image = styled.img`
   width: 100%;
   height: 100%;
   background-color: brown;
 `;
 
-export const Carousel2RightButtonBox = styled.div`
+export const Carousel3RightButtonBox = styled.div`
   width: 20%;
   height: 100%;
 `;
 
-export const Carousel2RigthButton = styled.button`
+export const Carousel3RigthButton = styled.button`
   width: 50px;
   height: 50px;
   background-color: rgb(0, 0, 0, 0);
@@ -73,7 +73,7 @@ export const Carousel2RigthButton = styled.button`
   }
 `;
 
-export const Carousel2DotButtonBox = styled.div`
+export const Carousel3DotButtonBox = styled.div`
   width: 40%;
   height: 75px;
   position: absolute;
@@ -85,7 +85,7 @@ export const Carousel2DotButtonBox = styled.div`
   border-collapse: collapse;
 `;
 
-export const Carousel2DotButtonWrapper = styled.div`
+export const Carousel3DotButtonWrapper = styled.div`
   height: 100%;
   width: 25%;
   /* border: 1px solid black; */
@@ -95,7 +95,7 @@ export const Carousel2DotButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-export const Carousel2DotButton = styled.button`
+export const Carousel3DotButton = styled.button`
   border-radius: 50%;
   width: 12px;
   height: 12px;
@@ -107,11 +107,11 @@ export const Carousel2DotButton = styled.button`
   }
 `;
 
-export const Carousel2RightButtonImage = styled.img`
+export const Carousel3RightButtonImage = styled.img`
   width: 30px;
   height: 30px;
 `;
-export const Carousel2LeftButtonImage = styled.img`
+export const Carousel3LeftButtonImage = styled.img`
   width: 30px;
   height: 30px;
 `;
