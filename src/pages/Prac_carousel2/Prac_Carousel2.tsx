@@ -5,64 +5,88 @@ import { MouseEvent } from 'react';
 
 import one from '../../assets/one.jpg';
 import two from '../../assets/two.jpg';
-import three from '../../assets/three.jpg';
+import three from '../../assets/three.jpeg';
 import four from '../../assets/four.jpg';
 import five from '../../assets/five.jpg';
 import leftButton from '../../assets/leftButton.png';
 import rightButton from '../../assets/rightButton.png';
 
 function Prac_Carousel2() {
-  //드래그 이벤트 함수
-  const inrange = (v: number, min: number, max: number) => {
-    if (v < min) return min;
-    if (v > max) return max;
-    return v;
-  };
+  // const inrange = (v: number, min: number, max: number) => {
+  //   if (v < min) return min;
+  //   if (v > max) return max;
+  //   return v;
+  // };
 
   const [transX, setTransX] = useState(0);
-
-  // 캐러셀 박스 크기
-  const SLIDER_WIDTH = 400;
-  const SLIDER_HEIGHT = 400;
 
   const [carousel2Number, setCarousel2Number] = useState<number>(1);
 
   const carousel2RightButton = function () {
-    if (carousel2Number > 4) {
-      setCarousel2Number(1);
-      return;
+    if (transX >= -250) {
+      setTransX(-500);
+    } else if (transX === -500) {
+      setTransX(-1000);
+    } else if (transX < -250 && transX > -750) {
+      setTransX(-500);
+    } else if (transX === -1000) {
+      setTransX(-1500);
+    } else if (transX <= -750 && transX > -1250) {
+      setTransX(-1000);
+    } else if (transX === -1500) {
+      setTransX(-2000);
+    } else if (transX <= -1250 && transX > -1750) {
+      setTransX(-1500);
+    } else if (transX <= -1750 && transX > -2250) {
+      setTransX(-2000);
+    } else if (transX <= -2250) {
+      setTransX(-2000);
     }
-
-    setCarousel2Number(carousel2Number + 1);
   };
 
   const carousel1LeftButton = function () {
-    if (carousel2Number < 2) {
-      setCarousel2Number(5);
-      return;
+    if (transX >= -250) {
+      setTransX(0);
+    } else if (transX === -500) {
+      setTransX(0);
+    } else if (transX < -250 && transX > -750) {
+      setTransX(-500);
+    } else if (transX === -1000) {
+      setTransX(-500);
+    } else if (transX <= -750 && transX > -1250) {
+      setTransX(-1000);
+    } else if (transX === -1500) {
+      setTransX(-1000);
+    } else if (transX <= -1250 && transX > -1750) {
+      setTransX(-1500);
+    } else if (transX <= -1750 && transX > -2250) {
+      setTransX(-1500);
+    } else if (transX <= -2250) {
+      setTransX(-2000);
     }
-    setCarousel2Number(carousel2Number - 1);
   };
 
   //점 버튼 함수
   const Carousel1DotButton1st = () => {
-    setCarousel2Number(1);
+    setTransX(0);
   };
 
   const Carousel1DotButton2st = () => {
-    setCarousel2Number(2);
+    setTransX(-500);
   };
   const Carousel1DotButton3st = () => {
-    setCarousel2Number(3);
+    setTransX(-1000);
   };
   const Carousel1DotButton4st = () => {
-    setCarousel2Number(4);
+    setTransX(-1500);
   };
   const Carousel1DotButton5st = () => {
-    setCarousel2Number(5);
+    setTransX(-2000);
   };
 
-  console.log(carousel2Number);
+  // useEffect(() => {
+  console.log('transX : ', transX);
+  // });
 
   return (
     <CommonStyle>
@@ -105,7 +129,7 @@ function Prac_Carousel2() {
             style={{
               transform: `translateX(${transX}px)`,
               // 🏄🏻‍♂️  drag를 초기화할 때 부드럽게 이동시켜준다.
-              transition: `transform ${transX ? 0 : 300}ms ease-in-out 0s`,
+              transition: `transform 200ms ease-out 0s`,
             }}
           >
             <S.Carousel2Image src={one} alt='one' />
@@ -114,7 +138,6 @@ function Prac_Carousel2() {
             <S.Carousel2Image src={four} alt='one' />
             <S.Carousel2Image src={five} alt='one' />
           </S.Carousel2ImageWrapper>
-
           <S.Carousel2DotButtonBox>
             <S.Carousel2DotButtonWrapper>
               <S.Carousel2DotButton onClick={Carousel1DotButton1st} />

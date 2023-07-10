@@ -5,7 +5,7 @@ import { MouseEvent } from 'react';
 
 import one from '../../assets/one.jpg';
 import two from '../../assets/two.jpg';
-import three from '../../assets/three.jpg';
+import three from '../../assets/three.jpeg';
 import four from '../../assets/four.jpg';
 import five from '../../assets/five.jpg';
 import leftButton from '../../assets/leftButton.png';
