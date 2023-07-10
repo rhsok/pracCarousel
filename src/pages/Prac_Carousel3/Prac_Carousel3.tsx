@@ -53,11 +53,16 @@ function Prac_Carousel3() {
     setCarousel3Number(5);
   };
 
-  console.log(carousel3Number);
+  console.log(isDragging);
 
   const onMouseDown = (event: any) => {
+    event.preventDefault();
     setDragStartX(event.clientX);
     setIsDragging(true);
+  };
+
+  const onMouseUp = () => {
+    setIsDragging(false);
   };
 
   const onMouseMove = (event: any) => {
@@ -65,10 +70,6 @@ function Prac_Carousel3() {
     const distanceX = event.clientX - dragStartX;
     setTransX(transX + distanceX);
     setDragStartX(event.clientX);
-  };
-
-  const onMouseUp = () => {
-    setIsDragging(false);
   };
 
   return (

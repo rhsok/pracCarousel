@@ -86,6 +86,7 @@ function Prac_Carousel2() {
         </S.Carousel2LeftButtonBox>
         <S.Carousel2ImageBox
           onMouseDown={(clickEvent: React.MouseEvent) => {
+            clickEvent.preventDefault();
             const mouseMoveHandler = (moveEvent: MouseEvent | any) => {
               const distanceX = moveEvent.clientX - clickEvent.clientX;
               setTransX(transX + distanceX);
