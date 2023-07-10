@@ -12,23 +12,15 @@ function MainPage() {
     navigate('/prac2');
   };
 
-  const goPrac3 = () => {
-    navigate('/prac3');
-  };
-
   return (
     <div>
       <div>MainPage</div>
-      <button className='carousel1' onClick={goPrac1}>
+      <button className='loginBtn' onClick={goPrac1}>
         1번 carousel
       </button>
       <br />
-      <button className='carousel2' onClick={goPrac2}>
+      <button className='loginBtn' onClick={goPrac2}>
         2번 carousel
-      </button>
-      <br />
-      <button className='carousel3' onClick={goPrac3}>
-        3번 carousel
       </button>
     </div>
   );

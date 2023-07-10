@@ -30,8 +30,8 @@ export const Carousel2LeftButton = styled.button`
 `;
 
 export const Carousel2ImageBox = styled.div`
-  width: 500px;
-  height: 350px;
+  width: 60%;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -43,13 +43,15 @@ export const Carousel2ImageBox = styled.div`
 
 export const Carousel2ImageWrapper = styled.div`
   width: 100%;
-  height: 350px;
+  height: 100%;
   display: flex;
+  flex-direction: row;
 `;
 
 export const Carousel2Image = styled.img`
-  width: 500px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
+  background-color: brown;
 `;
 
 export const Carousel2RightButtonBox = styled.div`
@@ -101,8 +103,7 @@ export const Carousel2DotButton = styled.button`
   background-color: white;
   cursor: pointer;
   :active {
-    transform: scale(0.9);
-    // scale(0.7)로 사용하고 싶으면 padding을 주면 된다.
+    transform: scale(0.7);
   }
 `;
 
