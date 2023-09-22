@@ -25,21 +25,29 @@ function Prac_Carousel2() {
   const carousel2RightButton = function () {
     if (transX >= -250) {
       setTransX(-500);
-    } else if (transX === -500) {
+    }
+    if (transX === -500) {
       setTransX(-1000);
-    } else if (transX < -250 && transX > -750) {
+    }
+    if (transX < -250 && transX > -750) {
       setTransX(-500);
-    } else if (transX === -1000) {
+    }
+    if (transX === -1000) {
       setTransX(-1500);
-    } else if (transX <= -750 && transX > -1250) {
+    }
+    if (transX <= -750 && transX > -1250) {
       setTransX(-1000);
-    } else if (transX === -1500) {
+    }
+    if (transX === -1500) {
       setTransX(-2000);
-    } else if (transX <= -1250 && transX > -1750) {
+    }
+    if (transX <= -1250 && transX > -1750) {
       setTransX(-1500);
-    } else if (transX <= -1750 && transX > -2250) {
+    }
+    if (transX <= -1750 && transX > -2250) {
       setTransX(-2000);
-    } else if (transX <= -2250) {
+    }
+    if (transX <= -2250) {
       setTransX(-2000);
     }
   };
